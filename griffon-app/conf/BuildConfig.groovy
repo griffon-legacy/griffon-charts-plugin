@@ -2,10 +2,11 @@ griffon.project.dependency.resolution = {
     inherits("global")
     log "warn"
     repositories {
-        griffonPlugins()
         griffonHome()
-        griffonCentral()
-        flatDir name: 'chartsPluginLib', dirs: 'lib'
+        mavenCentral()
+        // pluginDirPath is only available when installed
+        String basePath = pluginDirPath? "${pluginDirPath}/" : ''
+        flatDir name: "chartsbDir", dirs: ["${basePath}lib"]
     }
     dependencies {
         compile 'com.thecoderscorner:groovychart:0.1BETA',
@@ -22,5 +23,17 @@ griffon {
     }
 }
 
-griffon.jars.destDir='target/addon'
 
+log4j = {
+    // Example of changing the log pattern for the default console
+    // appender:
+    appenders {
+        console name: 'stdout', layout: pattern(conversionPattern: '%d [%t] %-5p %c - %m%n')
+    }
+
+    error 'org.codehaus.griffon',
+          'org.springframework',
+          'org.apache.karaf',
+          'groovyx.net'
+    warn  'griffon'
+}
