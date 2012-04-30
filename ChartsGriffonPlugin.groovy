@@ -46,11 +46,10 @@ class ChartsGriffonPlugin {
             email: 'aalmiray@yahoo.com'
         ]
     ]
-    String title = 'Color chooser/picker components'
+    String title = 'JFreeCharts support'
     // accepts Markdown syntax. See http://daringfireball.net/projects/markdown/ for details
     String description = '''
 Provides integration with [JFreeChart][1] by means of [ChartBuilder][2].
-
 
 Usage
 -----
