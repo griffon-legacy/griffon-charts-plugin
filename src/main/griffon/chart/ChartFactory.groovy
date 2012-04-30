@@ -25,7 +25,6 @@ import org.jfree.chart.JFreeChart
  */
 class ChartFactory extends AbstractFactory {
     public Object newInstance(FactoryBuilderSupport builder, Object name, Object value, Map attributes) {
-
         JFreeChart chart = null
         if(value instanceof JFreeChart) {
             chart = value
