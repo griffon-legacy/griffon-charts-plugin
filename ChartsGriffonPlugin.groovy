@@ -75,9 +75,9 @@ The following nodes will become available on a View script upon installing this 
 
 If a Class is set as the value for `chart:` then it's assumed to be a script that can be parsed using ChartBuilder 
 
-## Scripts ##
+### Scripts
 
- *  **create-chart** - creates a new Chart script that can be parsed using ChartBuilder
+ * **create-chart** - creates a new Chart script that can be parsed using ChartBuilder
 
 ### Example
 
@@ -116,7 +116,7 @@ __griffon-app/conf/charts/sample/SampleChart.groovy__
 
 This is how the previously defined chart may be embedded in a View
 
-__griffon-app/views/sample/SampleView.groovy
+__griffon-app/views/sample/SampleView.groovy__
 
         package sample
 		application(title: 'Charts',
