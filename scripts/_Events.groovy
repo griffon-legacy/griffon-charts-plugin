@@ -29,4 +29,3 @@ eventStatsStart = { pathToInfo ->
         pathToInfo << [name: 'Charts', path: 'charts', filetype: ['.groovy']]
     }
 }
-

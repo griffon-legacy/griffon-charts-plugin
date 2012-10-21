@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 the original author or authors.
+ * Copyright 2010-2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,11 +19,11 @@
  */
 class ChartsGriffonPlugin {
     // the plugin version
-    String version = '0.4'
+    String version = '1.0.0'
     // the version or versions of Griffon the plugin is designed for
-    String griffonVersion = '0.9.5 > *'
+    String griffonVersion = '1.0.0 > *'
     // the other plugins this plugin depends on
-    Map dependsOn = [swing: '0.9.5']
+    Map dependsOn = [swing: '1.0.0']
     // resources that are included in plugin packaging
     List pluginIncludes = []
     // the plugin license
@@ -86,49 +86,49 @@ from a Model if the chart is built inside a View script. Here is how the typical
 
 __griffon-app/conf/charts/sample/SampleChart.groovy__
 
-		package sample
-		import java.awt.Color
-		import java.awt.Font
-		import org.jfree.chart.labels.PieToolTipGenerator
+        package sample
+        import java.awt.Color
+        import java.awt.Font
+        import org.jfree.chart.labels.PieToolTipGenerator
 
-		def largeFont = new Font('Arial', Font.BOLD, 15)
+        def largeFont = new Font('Arial', Font.BOLD, 15)
 
-		piechart3d(title: 'Simple Pie Chart') {
-			defaultPieDataset {
-				Series1(40.0f)
-				Series2(30.0f)
-				Series3(30.0f)
-			}
-			antiAlias = true
-			backgroundPaint(Color.WHITE)
+        piechart3d(title: 'Simple Pie Chart') {
+            defaultPieDataset {
+                Series1(40.0f)
+                Series2(30.0f)
+                Series3(30.0f)
+            }
+            antiAlias = true
+            backgroundPaint(Color.WHITE)
 
-			pieplot {
-				sectionOutlinesVisible false
-				labelFont largeFont
-				labelGap 0.02
-				toolTipGenerator ({ dataset, key -> return "[${dataset} ${key}]" as String } as PieToolTipGenerator)
+            pieplot {
+                sectionOutlinesVisible false
+                labelFont largeFont
+                labelGap 0.02
+                toolTipGenerator ({ dataset, key -> return "[${dataset} ${key}]" as String } as PieToolTipGenerator)
 
-				sectionPaint('Series1', paint: new Color(255,0,0))
-				sectionPaint('Series2', paint: new Color(0,255,0))
-				sectionPaint('Series3', paint: new Color(0,0,255))
-			}
-		}
+                sectionPaint('Series1', paint: new Color(255,0,0))
+                sectionPaint('Series2', paint: new Color(0,255,0))
+                sectionPaint('Series3', paint: new Color(0,0,255))
+            }
+        }
 
 This is how the previously defined chart may be embedded in a View
 
 __griffon-app/views/sample/SampleView.groovy__
 
-		package sample
-		application(title: 'Charts',
-				preferredSize: [320, 240],
-				pack: true,
-				locationByPlatform:true,
-				iconImage: imageIcon('/griffon-icon-48x48.png').image,
-				iconImages: [imageIcon('/griffon-icon-48x48.png').image,
-				imageIcon('/griffon-icon-32x32.png').image,
-				imageIcon('/griffon-icon-16x16.png').image]) {
-			chart(SampleChart)
-		}
+        package sample
+        application(title: 'Charts',
+                preferredSize: [320, 240],
+                pack: true,
+                locationByPlatform:true,
+                iconImage: imageIcon('/griffon-icon-48x48.png').image,
+                iconImages: [imageIcon('/griffon-icon-48x48.png').image,
+                imageIcon('/griffon-icon-32x32.png').image,
+                imageIcon('/griffon-icon-16x16.png').image]) {
+            chart(SampleChart)
+        }
 
 [1]: http://www.jfree.org/jfreechart
 [2]: https://java.net/projects/groovychart
